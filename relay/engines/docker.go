@@ -361,7 +361,7 @@ func newClient(dockerConfig config.DockerInfo) (*client.Client, error) {
 	if ping, err := c.Ping(context.Background()); err == nil {
 		// since the new header was added in 1.25, assume server is 1.24 if header is not present.
 		if ping.APIVersion == "" {
-			ping.APIVersion = "1.24"
+			ping.APIVersion = "1.23"
 		}
 		// if server version is lower than the current client version, downgrade
 		if versions.LessThan(ping.APIVersion, c.ClientVersion()) {
