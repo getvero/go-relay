@@ -228,6 +228,7 @@ func (r *cogRelay) refreshBundles() error {
 						bundle.SetAvailable(false)
 						continue
 					}
+					log.Infof("Cloud Guru needs looking: %s %s.", bundle.Name, bundle.Version)
 					avail, _ := dockerEngine.IsAvailable(bundle.Docker.Image, bundle.Docker.Tag)
 					bundle.SetAvailable(avail)
 				} else {
